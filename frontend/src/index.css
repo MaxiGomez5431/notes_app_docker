@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-brand-orange: #E65F2B;
+  --color-brand-orange-hover: #c94715;
+  --color-grey-bg: #F9FAFB;
+  --color-title-color: #5A5A65;
+  --color-text-color: #6B7280;
+
+  --rounded-standard: 15px;
+  --padding-x-searchbar: 60px;
+  --note-width: 400px;
+  --note-height: 250px;
+
+  --shadow-custom-size: 0px 2px 4px;
+  
+}

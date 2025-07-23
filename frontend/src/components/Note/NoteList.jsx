@@ -1,18 +1,29 @@
+import { useEffect } from "react";
 import Note from "./Note";
 
-export default function NoteList({ notes, searchQuery }) {
-  const filteredData = notes
-    .filter((note) => {
-      if (searchQuery.length === 0) return true;
+export default function NoteList({ notes, textFilters, tagFilters }) {
+  const filteredData = notes.filter((note) => {
+    const noteText = (note.title + " " + note.body).toLowerCase();
+    
+    // Check text filters (if any exist)
+    const textMatch = textFilters.length === 0 || 
+                    noteText.includes(textFilters.toLowerCase())
+    
+    const tagMatch = tagFilters.length === 0 ||
+                    tagFilters.some(filterTag => 
+                      note.tags.some(noteTag => 
+                        noteTag.toLowerCase() === filterTag.toLowerCase()
+                      )
+                    );
+    
+    return textMatch && tagMatch;
+  });
 
-      const noteText = (
-        note.title + " " + note.body + " " + note.tags.join(" ")
-      ).toLowerCase();
+  useEffect(() => {
+    console.log(notes);
+  }, [notes]);
 
-      return searchQuery.some((term) => noteText.includes(term.toLowerCase()));
-    });
-
-  if (filteredData.length === 0) {
+  if (filteredData?.length === 0) {
     return (
       <div className="empty-notes-message text-center py-10 text-text-color text-2xl">
         {notes.length === 0

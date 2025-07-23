@@ -7,14 +7,15 @@ import { useNotes } from "./context/NoteContext";
 
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState([]);
+  const [textFilters, setTextFilters] = useState("");
+  const [tagFilters, setTagFilters] = useState([]);
   const { notes, archivedNotes } = useNotes();
 
   return (
     <div className="flex flex-col min-h-screen w-full bg-grey-bg">
       
       <div className="mx-[120px]">
-        <NavigationBtns />
+        <NavigationBtns setTextFilters={setTextFilters} tagFilters={tagFilters} setTagFilters={setTagFilters} />
       </div>
 
       <main className="flex-1 mx-[120px]">
@@ -22,11 +23,11 @@ function App() {
           <Routes>
             <Route
               path="/notes/active"
-              element={<NoteList notes={notes} searchQuery={searchQuery} />}
+              element={<NoteList notes={notes} textFilters={textFilters} tagFilters={tagFilters} />}
             />
             <Route
               path="/notes/archived"
-              element={<NoteList notes={archivedNotes} searchQuery={searchQuery} />}
+              element={<NoteList notes={archivedNotes} textFilters={textFilters} tagFilters={tagFilters} />}
             />
             <Route path="*" element={<Navigate to="/notes/active" replace />} />
           </Routes>

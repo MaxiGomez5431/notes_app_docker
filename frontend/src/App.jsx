@@ -4,6 +4,7 @@ import Searchbar from "./components/Searchbar";
 import NavigationBtns from "./components/Navigation/NavigationBtns";
 import NoteList from "./components/Note/NoteList";
 import { useNotes } from "./context/NoteContext";
+import TagFilterPills from "./components/Navigation/TagFilterPills";
 
 
 function App() {
@@ -15,8 +16,10 @@ function App() {
     <div className="flex flex-col min-h-screen w-full bg-grey-bg">
       
       <div className="mx-[120px]">
-        <NavigationBtns setTextFilters={setTextFilters} tagFilters={tagFilters} setTagFilters={setTagFilters} />
+        <NavigationBtns textFilters={textFilters} setTextFilters={setTextFilters} tagFilters={tagFilters} setTagFilters={setTagFilters} />
+        <TagFilterPills tagFilters={tagFilters} setTagFilters={setTagFilters} />
       </div>
+      
 
       <main className="flex-1 mx-[120px]">
         {notes && archivedNotes && (

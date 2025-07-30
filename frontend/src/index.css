@@ -14,5 +14,7 @@
   --note-height: 250px;
 
   --shadow-custom-size: 0px 2px 4px;
+
+  --breakpoint-lg: 1080px; /* 1450px */
   
 }

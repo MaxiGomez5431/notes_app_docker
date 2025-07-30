@@ -9,7 +9,7 @@ export default function TagList({ tags }) {
       {visibleTags.map((tag, index) => (
         <span
           key={index}
-          className="inline-block bg-brand-orange text-white px-4 py-1 rounded-[var(--rounded-standard)]"
+          className="inline-block bg-brand-orange text-white px-4 py-1 rounded-[var(--rounded-standard)] overflow-hidden text-ellipsis"
         >
           {tag}
         </span>

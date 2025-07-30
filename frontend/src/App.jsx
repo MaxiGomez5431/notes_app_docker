@@ -15,13 +15,13 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen w-full bg-grey-bg">
       
-      <div className="mx-[120px]">
+      <div className="mx-[30px] sm:mx-[90px] md:mx-[120px]">
         <NavigationBtns textFilters={textFilters} setTextFilters={setTextFilters} tagFilters={tagFilters} setTagFilters={setTagFilters} />
         <TagFilterPills tagFilters={tagFilters} setTagFilters={setTagFilters} />
       </div>
       
 
-      <main className="flex-1 mx-[120px]">
+      <main className="flex-1 mx-[30px] sm:mx-[90px] md:mx-[120px]">
         {notes && archivedNotes && (
           <Routes>
             <Route

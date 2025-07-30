@@ -1,4 +1,5 @@
 import { useFormContext } from "react-hook-form";
+import TextareaAutosize from "react-textarea-autosize";
 
 export default function FormInput({
   name,
@@ -23,10 +24,11 @@ export default function FormInput({
   return (
     <div className="relative w-full">
       {type === "textarea" ? (
-        <textarea
+        <TextareaAutosize
           id={name}
           className={`${inputClass} resize-none h-40`}
           placeholder={placeholder}
+          maxRows={15}
           {...register(name, rules)}
         />
       ) : (

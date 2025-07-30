@@ -34,7 +34,10 @@ export default function NoteList({ notes, textFilters, tagFilters }) {
   }
 
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,minmax(var(--note-width),1fr))] gap-5">
+    <div className="grid gap-5
+      grid-cols-[repeat(auto-fill,minmax(200px,2fr))] 
+      sm:grid-cols-[repeat(auto-fill,minmax(var(--note-width),1fr))]"
+    >
       {filteredData.map((note, index) => (
         <Note key={index} data={note} />
       ))}

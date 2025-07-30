@@ -46,7 +46,7 @@ export default function NoteModal({ isEditing, note, onClose, onSave, onDelete }
       <FormProvider {...methods}>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-gray-50 px-6 pb-6 rounded-xl shadow-xl min-w-[600px] max-w-[600px] flex flex-col gap-4"
+          className="bg-gray-50 px-6 pb-6 rounded-xl shadow-xl w-full max-w-[600px] flex flex-col gap-4 mx-5"
           noValidate
         >
           <div className="flex w-full mt-3 items-center justify-between text-xl">

@@ -8,11 +8,11 @@ export default function Note({ data }) {
   const [open, setOpen] = useState(false);
   const { updateNote, deleteNote } = useNotes();
 
-  return (
+  return ( //min-w-[var(--note-width)]
     <>
       <div className="relative flex flex-col items-start justify-start 
         border-gray-300 border rounded-[var(--rounded-standard)] 
-        min-w-[var(--note-width)] min-h-[var(--note-height)]
+        //// min-h-[var(--note-height)]
         shadow-custom-size shadow-gray-300 bg-white"
       >
         {/* Title and Ellipsis */}

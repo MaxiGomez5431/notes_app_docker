@@ -13,7 +13,8 @@ export default function NewNoteBtn() {
       className="flex items-center justify-center gap-1
         py-4 pl-3.5 pr-4 rounded-[var(--rounded-standard)]
         bg-brand-orange text-white font-semibold hover:bg-brand-orange-hover
-        cursor-pointer transition active:translate-y-0.5 min-w-[var(--note-width)]
+        cursor-pointer transition active:translate-y-0.5 
+        w-full lg:w-[var(--note-width)] lg:min-w-[calc(var(--note-width)/2)]
         "
     >
       <Plus />

@@ -10,7 +10,10 @@ export default function NavigationBtns({textFilters, setTextFilters, tagFilters,
   const [actualText, setActualText] = useState("");
 
   const addTag = (tag) => {
-    if (tag.trim() === "") return;
+    if (tag.trim() === "" || tagFilters.includes(tag)){
+      setActualTag("");
+      return;
+    } 
     setTagFilters([...tagFilters, tag]);
     setActualTag("");
   };
@@ -22,11 +25,11 @@ export default function NavigationBtns({textFilters, setTextFilters, tagFilters,
   };
   return (
     <>
-      <div className="flex items-center justify-between my-5">
+      <div className="flex flex-col lg:flex-row-reverse items-center justify-between my-5 gap-5">
 
-        <FilterBtn onClick={() => setOpenFilter(!openFilter)}/>
+        <NewNoteBtn/>
 
-        <nav className="flex items-center justify-start gap-[10px] min-w-[var(--note-width)]">
+        <nav className="flex items-center justify-start gap-5 w-full lg:min-w-[var(--note-width)] lg:max-w-[calc(var(--note-width)*2)]">
           <NotesDisplayBtn route={"/notes/active"}>
             Active notes
             <File />
@@ -38,7 +41,7 @@ export default function NavigationBtns({textFilters, setTextFilters, tagFilters,
           </NotesDisplayBtn>
         </nav>
 
-        <NewNoteBtn/>
+        <FilterBtn onClick={() => setOpenFilter(!openFilter)}/>
       </div>
 
       {openFilter && (
@@ -85,7 +88,8 @@ export default function NavigationBtns({textFilters, setTextFilters, tagFilters,
 
               <button 
                 type="submit"
-                className="w-1/4 h-12 px-4 py-2 bg-brand-orange text-white rounded-lg hover:bg-grand-orange-hover transition"
+                className="w-1/4 min-w-32 h-12 px-4 py-2 bg-brand-orange text-white rounded-lg hover:bg-grand-orange-hover transition
+                cursor-pointer hover:bg-brand-orange-hover active:translate-y-0.5"
                 onClick={handleSubmit}
               >
                 Apply filters
